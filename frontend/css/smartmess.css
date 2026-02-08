@@ -1,0 +1,427 @@
+/* ============================================
+   SmartMess — Premium Web3 / Algorand Theme
+   Hackathon-ready, job-ready dApp styles
+   ============================================ */
+
+:root {
+  --algorand-teal: #00f2a6;
+  --algorand-cyan: #00c6ff;
+  --algorand-dark: #0b0f19;
+  --algorand-darker: #06090f;
+  --algorand-mid: #132038;
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-muted: #b5b5b5;
+  --text-bright: #e8e8e8;
+  --gradient-primary: linear-gradient(135deg, #00f2a6, #00c6ff);
+  --gradient-hero: radial-gradient(circle at top, #132038, #0b0f19 70%);
+  --shadow-glow: 0 20px 40px rgba(0, 242, 166, 0.15);
+  --font-main: 'Poppins', 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--algorand-dark);
+  color: #ffffff;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ----- Navbar ----- */
+.smartmess-navbar {
+  backdrop-filter: blur(14px);
+  background: rgba(11, 15, 25, 0.88);
+  border-bottom: 1px solid var(--glass-border);
+  padding: 0.75rem 0;
+}
+
+.smartmess-navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+.smartmess-navbar .navbar-brand span {
+  color: var(--algorand-teal);
+}
+
+.smartmess-navbar .nav-link {
+  color: var(--text-bright) !important;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.smartmess-navbar .nav-link:hover,
+.smartmess-navbar .nav-link.active {
+  color: var(--algorand-teal) !important;
+}
+
+.smartmess-navbar .navbar-toggler {
+  border-color: rgba(255,255,255,0.2);
+  color: #fff;
+}
+
+.smartmess-navbar .btn-outline-light {
+  border-color: rgba(255,255,255,0.4);
+  color: #fff;
+}
+
+.smartmess-navbar .btn-outline-light:hover {
+  background: #fff;
+  color: var(--algorand-dark);
+  border-color: #fff;
+}
+
+.smartmess-navbar .btn-primary {
+  background: var(--gradient-primary);
+  border: none;
+  font-weight: 600;
+  color: #0b0f19;
+}
+
+.smartmess-navbar .btn-primary:hover {
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+/* ----- Main content padding under fixed navbar ----- */
+main,
+.hero-section {
+  padding-top: 80px;
+}
+
+/* ----- Hero ----- */
+.hero-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: var(--gradient-hero);
+}
+
+.hero-section h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-section h1 span {
+  color: var(--algorand-teal);
+  background: var(--gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-section .lead {
+  color: var(--text-muted);
+  max-width: 560px;
+  font-size: 1.1rem;
+}
+
+/* ----- Buttons ----- */
+.btn-smartmess {
+  background: var(--gradient-primary);
+  border: none;
+  font-weight: 600;
+  color: #0b0f19;
+  padding: 0.6rem 1.5rem;
+  border-radius: 12px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn-smartmess:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-glow);
+  color: #0b0f19;
+}
+
+.btn-outline-teal {
+  border: 2px solid var(--algorand-teal);
+  color: var(--algorand-teal);
+  font-weight: 600;
+  border-radius: 12px;
+}
+
+.btn-outline-teal:hover {
+  background: var(--algorand-teal);
+  color: var(--algorand-dark);
+}
+
+/* ----- Glass cards ----- */
+.glass-card {
+  background: var(--glass-bg);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-glow);
+  border-color: rgba(0, 242, 166, 0.2);
+}
+
+.glass-card h5, .glass-card .h5 {
+  color: #fff;
+  font-weight: 600;
+}
+
+.glass-card .text-muted {
+  color: var(--text-muted) !important;
+}
+
+/* ----- Section titles ----- */
+.section-title {
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ----- Step / timeline ----- */
+.step-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--algorand-teal);
+  line-height: 1;
+}
+
+.step-card {
+  background: var(--glass-bg);
+  border-radius: 18px;
+  padding: 28px;
+  height: 100%;
+  border: 1px solid var(--glass-border);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-glow);
+}
+
+.flow-arrow {
+  position: relative;
+  width: 40px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--algorand-teal), var(--algorand-cyan));
+  margin: 0 auto;
+}
+
+.flow-arrow::after {
+  content: '';
+  position: absolute;
+  border: solid var(--algorand-cyan);
+  border-width: 0 2px 2px 0;
+  padding: 4px;
+  transform: rotate(-45deg);
+  margin-left: 32px;
+  margin-top: -5px;
+}
+
+/* ----- Forms ----- */
+.form-smartmess .form-control,
+.form-smartmess .form-select {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid var(--glass-border);
+  color: #fff;
+  border-radius: 12px;
+  padding: 0.75rem 1rem;
+}
+
+.form-smartmess .form-control::placeholder {
+  color: var(--text-muted);
+}
+
+.form-smartmess .form-control:focus {
+  background: rgba(255,255,255,0.08);
+  border-color: var(--algorand-teal);
+  color: #fff;
+  box-shadow: 0 0 0 3px rgba(0, 242, 166, 0.2);
+}
+
+.form-smartmess label {
+  color: var(--text-bright);
+  font-weight: 500;
+}
+
+.nav-pills .nav-link {
+  background: rgba(255,255,255,0.06);
+  color: var(--text-bright);
+  border-radius: 12px;
+  margin: 0 2px;
+}
+
+.nav-pills .nav-link.active {
+  background: var(--gradient-primary);
+  color: #0b0f19;
+  font-weight: 600;
+}
+
+/* ----- Tables ----- */
+.table-smartmess {
+  color: #fff;
+}
+
+.table-smartmess thead th {
+  border-color: var(--glass-border);
+  color: var(--algorand-teal);
+  font-weight: 600;
+}
+
+.table-smartmess tbody td {
+  border-color: var(--glass-border);
+  vertical-align: middle;
+}
+
+.table-smartmess tbody tr:hover {
+  background: rgba(255,255,255,0.04);
+}
+
+/* ----- Stats / KPI cards ----- */
+.stat-card {
+  background: var(--glass-bg);
+  border-radius: 16px;
+  padding: 1.5rem;
+  border: 1px solid var(--glass-border);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+}
+
+.stat-card .value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--algorand-teal);
+}
+
+.stat-card .label {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* ----- Footer ----- */
+.smartmess-footer {
+  background: var(--algorand-darker);
+  color: var(--text-muted);
+  padding: 2.5rem 0;
+  margin-top: 4rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.smartmess-footer a {
+  color: var(--algorand-teal);
+  text-decoration: none;
+}
+
+.smartmess-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ----- Alerts ----- */
+.alert-smartmess {
+  background: rgba(0, 242, 166, 0.1);
+  border: 1px solid rgba(0, 242, 166, 0.3);
+  color: var(--algorand-teal);
+  border-radius: 12px;
+}
+
+.alert-smartmess-danger {
+  background: rgba(255, 100, 100, 0.1);
+  border: 1px solid rgba(255, 100, 100, 0.3);
+  color: #ff6b6b;
+}
+
+/* ----- Animations ----- */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-in {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* ----- Wallet badge ----- */
+.wallet-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.75rem;
+  background: rgba(0, 242, 166, 0.15);
+  border: 1px solid rgba(0, 242, 166, 0.3);
+  border-radius: 999px;
+  font-size: 0.85rem;
+  color: var(--algorand-teal);
+}
+
+.wallet-badge.disconnected {
+  background: rgba(255,255,255,0.05);
+  border-color: var(--glass-border);
+  color: var(--text-muted);
+}
+
+.text-teal {
+  color: var(--algorand-teal);
+}
+
+/* ----- Page-specific ----- */
+.page-hero {
+  padding: 100px 0 60px;
+  text-align: center;
+  background: var(--gradient-hero);
+}
+
+.page-hero h1 {
+  font-weight: 700;
+  font-size: 2.75rem;
+}
+
+.page-hero p {
+  color: var(--text-muted);
+  max-width: 640px;
+  margin: 1rem auto 0;
+}
+
+/* ----- Responsive ----- */
+@media (max-width: 991px) {
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+  .smartmess-navbar .navbar-collapse {
+    padding: 1rem 0;
+  }
+  .smartmess-navbar .btn {
+    margin-top: 0.5rem;
+    margin-left: 0 !important;
+  }
+}

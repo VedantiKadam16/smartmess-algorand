@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Consume Meal | SmartMess</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="css/smartmess.css" rel="stylesheet" />
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg fixed-top smartmess-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="index.html">Smart<span>Mess</span></a>
+    <button class="navbar-toggler navbar-dark" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="how-it-works.html">How It Works</a></li>
+        <li class="nav-item"><a class="nav-link" href="features.html">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+        <li class="nav-item"><a class="nav-link" href="signup.html">Sign Up</a></li>
+        <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+        <li class="nav-item"><a class="btn btn-smartmess btn-sm ms-2" href="meal.html">Consume Meal</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main class="py-5">
+  <div class="container py-5">
+    <section class="page-hero">
+      <h1>Consume meal</h1>
+      <p>One tap deducts one token via the smart contract. Your balance updates on-chain.</p>
+    </section>
+
+    <div class="row justify-content-center">
+      <div class="col-md-8 col-lg-5">
+        <div class="glass-card text-center">
+          <p class="text-muted mb-2">Current balance</p>
+          <h2 class="mb-4" style="color: var(--algorand-teal);" id="displayBalance">86</h2>
+          <p class="small text-muted mb-4">Pressing the button will trigger a smart contract call to deduct 1 MEAL token.</p>
+          <button type="button" class="btn btn-smartmess btn-lg px-5" id="consumeBtn">Consume 1 meal</button>
+        </div>
+
+        <div id="successAlert" class="alert alert-smartmess mt-4 d-none">
+          <strong>Success.</strong> 1 token deducted. Transaction hash: <code id="txHash">N/A</code>
+        </div>
+        <div id="errorAlert" class="alert alert-smartmess-danger mt-4 d-none">
+          <strong>Error.</strong> <span id="errorText">Insufficient balance or transaction failed.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<footer class="smartmess-footer">
+  <div class="container text-center">
+    <p class="mb-1">© 2026 SmartMess • Built on Algorand</p>
+    <small>Hackathon-Ready • Secure • Transparent</small>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  (function() {
+    var balance = 86;
+    var displayBalance = document.getElementById('displayBalance');
+    var consumeBtn = document.getElementById('consumeBtn');
+    var successAlert = document.getElementById('successAlert');
+    var errorAlert = document.getElementById('errorAlert');
+    var txHashEl = document.getElementById('txHash');
+    var errorTextEl = document.getElementById('errorText');
+
+    function randomTxHash() {
+      var hex = 'ABCDEF0123456789';
+      var s = '';
+      for (var i = 0; i < 8; i++) s += hex[Math.floor(Math.random() * 16)];
+      return s + '...' + s;
+    }
+
+    consumeBtn.addEventListener('click', function() {
+      successAlert.classList.add('d-none');
+      errorAlert.classList.add('d-none');
+      if (balance < 1) {
+        errorTextEl.textContent = 'Insufficient token balance.';
+        errorAlert.classList.remove('d-none');
+        return;
+      }
+      consumeBtn.disabled = true;
+      consumeBtn.textContent = 'Processing...';
+      setTimeout(function() {
+        balance -= 1;
+        displayBalance.textContent = balance;
+        txHashEl.textContent = randomTxHash();
+        successAlert.classList.remove('d-none');
+        consumeBtn.disabled = false;
+        consumeBtn.textContent = 'Consume 1 meal';
+      }, 1500);
+    });
+  })();
+</script>
+</body>
+</html>
